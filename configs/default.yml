@@ -3,8 +3,8 @@
 project:
   name: "MyFirstProject"
   # --- REQUIRED PATHS ---
-  content_dir: "examples/content"
-  style_path: "examples/style/000.png"
+  content_dir: "examples/input"
+  style_path: "examples/styles/style000.jpg"
   style_indices: [0] # Must be a list, even for a single frame
   output_dir: "output/MyFirstProject"
   # --- OPTIONAL PATHS ---
@@ -21,10 +21,10 @@ project:
 
 precomputation:
   # Parameters for expensive, cacheable operations
-  flow_engine: "NeuFlow" # RAFT, NeuFlow
+  flow_engine: "RAFT" # RAFT, NeuFlow
   # Model name. For RAFT: 'sintel', 'kitti'.
   # For NeuFlow: 'neuflow_sintel', 'neuflow_mixed', 'neuflow_things'.
-  flow_model: "neuflow_sintel"
+  flow_model: "sintel"
   edge_method: "Classic" # Classic, PAGE, PST
 
 pipeline:
@@ -66,7 +66,7 @@ ebsynth_params:
   stop_threshold: 5 # Stop improving pixels when change is less than this value (0-255)
   # Skips random search for pixels with SSD error below this. 0.0 disables. Can provide a large speedup.
   search_pruning_threshold: 50.0
-  # Cost function for patch matching. 
+  # Cost function for patch matching.
   # Sum of Squared Difference: "ssd"
   # Normalized Cross-Correlation: "ncc" is more robust to lighting changes.
   cost_function: "ncc" # Options: "ssd", "ncc"
